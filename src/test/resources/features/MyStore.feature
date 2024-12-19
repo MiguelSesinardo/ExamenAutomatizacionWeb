@@ -31,7 +31,7 @@ Característica: Product - Store
   Esquema del escenario: : Login incorrecto
 
     Dado estoy en la página de la tienda
-    Cuando me logueo con mi usuario "<usuario>" y clave "<clave>"
+    Cuando me logueo con un usuario "<usuario>" y clave "<clave>"
     Entonces valido que que no haya iniciado sesíón
     Ejemplos:
       | usuario                    | clave  |

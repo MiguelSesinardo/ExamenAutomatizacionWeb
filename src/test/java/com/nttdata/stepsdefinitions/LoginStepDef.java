@@ -56,4 +56,18 @@ public class LoginStepDef {
     public void validoQueQueNoHayaIniciadoSesíón() {
         loginStep.validarNoInicioSesion();
     }
+
+    @Cuando("me logueo con un usuario {string} y clave {string}")
+    public void meLogueoConUnUsuarioYClave(String usuario, String password) {
+        loginStep = new LoginStep(driver);
+        loginStep.buscarIniciarSesion();
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement textoTitulo = driver.findElement(LoginPage.textoTitulo);
+        wait.until(ExpectedConditions.visibilityOf(textoTitulo));
+        loginStep.ingresarUsuario(usuario);
+        loginStep.ingresarPassword(password);
+        screenShot();
+        loginStep.iniciarSesion();
+        screenShot();
+    }
 }
